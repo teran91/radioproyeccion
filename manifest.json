@@ -1,0 +1,10 @@
+{
+  "name": "Radio Proyección 100.1 FM Stereo",
+  "short_name": "Radio Proyección",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a1020",
+  "theme_color": "#101827",
+  "description": "Radio Proyección - Siempre Contigo",
+  "icons": []
+}

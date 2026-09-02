@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101827" />
+  <meta name="description" content="Radio Proyección 100.1 FM Stereo - Siempre Contigo" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Radio Proyección | Siempre Contigo</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mini">
+        <div class="mini-logo">RP</div>
+        <div><strong>RADIO PROYECCIÓN</strong><span>100.1 FM STEREO</span></div>
+      </div>
+      <button id="installBtn" class="icon-btn hidden" aria-label="Instalar aplicación">⇩</button>
+    </header>
+
+    <main>
+      <section id="home" class="screen active">
+        <div class="live-pill"><span class="live-dot"></span> EN VIVO</div>
+
+        <div class="cover-wrap">
+          <div id="visualizer" class="visualizer"></div>
+          <div class="cover">
+            <div class="cover-inner">
+              <div class="cover-rp">RP</div>
+              <div class="cover-title">RADIO<br>PROYECCIÓN</div>
+              <div class="cover-frequency">100.1 FM STEREO</div>
+              <div class="cover-slogan">SIEMPRE CONTIGO</div>
+            </div>
+          </div>
+        </div>
+
+        <section class="now-playing">
+          <p class="eyebrow">ESTÁS ESCUCHANDO</p>
+          <h1 id="trackTitle">Radio Proyección</h1>
+          <p id="trackArtist">100.1 FM Stereo · Siempre Contigo</p>
+        </section>
+
+        <section class="player-card">
+          <div class="status-row">
+            <span id="connectionStatus" class="status">Listo para escuchar</span>
+            <span id="streamBadge" class="stream-badge">SEÑAL 1</span>
+          </div>
+          <input id="progress" type="range" min="0" max="100" value="0" disabled aria-label="Progreso" />
+          <div class="controls">
+            <button id="volumeBtn" class="round-btn" aria-label="Silenciar">🔊</button>
+            <button id="playBtn" class="play-btn" aria-label="Reproducir">▶</button>
+            <button id="sleepBtn" class="round-btn" aria-label="Temporizador">◷</button>
+          </div>
+          <div class="volume-wrap">
+            <span>🔉</span><input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volumen" /><span>🔊</span>
+          </div>
+        </section>
+
+        <div class="quick-actions">
+          <button class="quick" data-action="whatsapp"><span>💬</span>Mensaje</button>
+          <button class="quick" data-action="website"><span>🌐</span>Web</button>
+          <button class="quick" data-action="share"><span>↗</span>Compartir</button>
+        </div>
+      </section>
+
+      <section id="schedule" class="screen">
+        <div class="section-head"><p class="eyebrow">PROGRAMACIÓN</p><h2>Siempre contigo</h2></div>
+        <div id="onAirCard" class="on-air-card">
+          <span class="live-dot"></span>
+          <div><small>AL AIRE AHORA</small><strong id="onAirName">Programación Radio Proyección</strong><p id="onAirTime">Señal en vivo</p></div>
+        </div>
+        <div id="scheduleList" class="schedule-list"></div>
+      </section>
+
+      <section id="contact" class="screen">
+        <div class="section-head"><p class="eyebrow">PARTICIPA</p><h2>Conversemos</h2></div>
+        <div class="contact-card">
+          <div class="contact-icon">💬</div>
+          <h3>Envía tu saludo</h3>
+          <p>Comunícate con Radio Proyección y participa de nuestra programación.</p>
+          <button id="whatsappBtn" class="primary-action">Abrir WhatsApp</button>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🌐</div>
+          <h3>Radio Proyección en internet</h3>
+          <p>Escúchanos y conoce nuestras novedades.</p>
+          <button id="websiteBtn" class="secondary-action">Visitar sitio web</button>
+        </div>
+      </section>
+
+      <section id="more" class="screen">
+        <div class="section-head"><p class="eyebrow">RADIO PROYECCIÓN</p><h2>Más opciones</h2></div>
+        <div class="settings-list">
+          <button id="streamSwitch" class="setting"><span>📡</span><div><strong>Cambiar señal</strong><small id="streamName">Automático · Señal 1</small></div><b>›</b></button>
+          <button id="sleepSetting" class="setting"><span>◷</span><div><strong>Temporizador</strong><small id="sleepStatus">Desactivado</small></div><b>›</b></button>
+          <button id="shareSetting" class="setting"><span>↗</span><div><strong>Compartir</strong><small>Invita a tus amigos a escuchar</small></div><b>›</b></button>
+        </div>
+        <div class="about">
+          <strong>Radio Proyección 100.1 FM Stereo</strong>
+          <span>Siempre Contigo</span>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-screen="home"><span>⌂</span><small>Inicio</small></button>
+      <button class="nav-item" data-screen="schedule"><span>☷</span><small>Programación</small></button>
+      <button class="nav-item" data-screen="contact"><span>✉</span><small>Mensajes</small></button>
+      <button class="nav-item" data-screen="more"><span>•••</span><small>Más</small></button>
+    </nav>
+  </div>
+
+  <div id="sleepModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close="sleepModal">×</button>
+      <p class="eyebrow">TEMPORIZADOR</p><h3>¿Cuándo apagar la radio?</h3>
+      <div class="timer-options">
+        <button data-minutes="15">15 min</button><button data-minutes="30">30 min</button>
+        <button data-minutes="45">45 min</button><button data-minutes="60">60 min</button>
+      </div>
+      <button id="disableSleep" class="text-action">Desactivar temporizador</button>
+    </div>
+  </div>
+
+  <audio id="radioAudio" preload="none" crossorigin="anonymous"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="app.js"></script>
+</body>
+</html>
