@@ -1,9 +1,9 @@
 const CONFIG = {
   streams: [
     { name: "SEÑAL 1", url: "https://app.radio593.com/hls/u96/r81/playlist.m3u8", type: "hls" },
-    { name: "SEÑAL 2", url: "https://streampanel.online/8082/stream?nocache=1788283645833", type: "auto" }
+    { name: "SEÑAL 2", url: "https://streampanel.online/8082/stream", type: "auto" }
   ],
-  whatsapp: "", // EJEMPLO: 56912345678
+  whatsapp: "56978781300", // EJEMPLO: 56912345678
   website: "https://www.radioproyeccion.cl",
   shareText: "Escucha Radio Proyección 100.1 FM Stereo · Siempre Contigo",
   schedule: [
