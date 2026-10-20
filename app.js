@@ -1,4 +1,7 @@
-const streams=['https://app.radio593.com/hls/u96/r81/playlist.m3u8','https://streampanel.online/8082/stream?nocache=1788283645833'];const whatsapp='56978781300';const audio=document.getElementById('audio');let current=0,hls;
+const streams = [
+  'https://casterfm.live-video.workers.dev/caster/proyeccion.mp3',
+  'https://streampanel.online/8082/stream?nocache=1788283645833'
+];const whatsapp='56978781300';const audio=document.getElementById('audio');let current=0,hls;
 function load(){document.getElementById('signal').textContent='Señal '+(current+1);if(hls){hls.destroy();hls=null}const url=streams[current];if(current===0&&window.Hls&&Hls.isSupported()){hls=new Hls();hls.loadSource(url);hls.attachMedia(audio);hls.on(Hls.Events.MANIFEST_PARSED,()=>document.getElementById('status').textContent='Señal conectada')}else{audio.src=url;document.getElementById('status').textContent='Señal conectada'}}
 document.getElementById('play').onclick=async()=>{try{await audio.play();document.getElementById('status').textContent='🔴 En vivo'}catch(e){document.getElementById('status').textContent='No fue posible iniciar la señal'}};
 document.getElementById('switch').onclick=()=>{current=(current+1)%streams.length;load()};
